@@ -1,9 +1,10 @@
 export default class FormValidator {
   /**
-   *
-   * @returns
+   * Execute the validation of html form
+   * @returns {boolean} Retrun true if the form is valid and false if the form 
+   * not assert a rule 
    */
-  formValidator () {
+  execute () {
     const inputsToValidateArray = this.getInputArray()
 
     const validateResultsArray = this.formAssertions(inputsToValidateArray)
@@ -24,7 +25,8 @@ export default class FormValidator {
   }
 
   /**
-   *
+   * Receive the fv-rules data of every input of form, execute the action of rule e gives the
+   * assertion answer
    * @param {*} field
    * @returns
    */
@@ -61,7 +63,7 @@ export default class FormValidator {
   }
 
   /**
-   *
+   * Get the value of a input field, based on the field type
    * @param {*} field
    * @param {*} getIdentityFrom
    * @returns
@@ -109,8 +111,8 @@ export default class FormValidator {
   }
 
   /**
-   *
-   * @returns
+   * Get the form fields uisng a querySelectorAll and convert to an array
+   * @returns {array} - Return an array with all form fields
    */
   getInputArray () {
     const inputsFormNodes = document.querySelectorAll('.fvfield')
@@ -152,7 +154,7 @@ export default class FormValidator {
   }
 
   /**
-   *
+   * Assert if the field value is in a CPF format, not test if the value is a CPF valid 
    * @param {*} field
    * @param {*} ruleName
    * @returns
